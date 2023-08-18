@@ -3,6 +3,8 @@ import logo from "../../assets/logo3.png";
 import { AppBar, Box, Toolbar, Typography, styled } from "@mui/material";
 import Search from "./Search";
 import CustomButttons from "./CustomButttons";
+import { Link } from "react-router-dom";
+
 
 const StyledHeader = styled(AppBar)`
   background: #96b6c5;
@@ -10,10 +12,11 @@ const StyledHeader = styled(AppBar)`
   height: 65px;
 `;
 
-const Component = styled(Box)`
+const Component = styled(Link)`
   //   padding-right:15%;
   line-height: 0;
   width: 40%;
+  text-decoration : none;
 `;
 const SubHeading = styled(Typography)`
   font-size: 9%;
@@ -25,7 +28,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <Toolbar style={{ minHeight: 60 }}>
-        <Component>
+        <Component to='/' >
           <img src={logo} alt="logo" className="logo" />
           <SubHeading className="slogan">One for All</SubHeading>
         </Component>

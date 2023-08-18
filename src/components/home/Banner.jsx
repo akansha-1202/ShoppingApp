@@ -1,12 +1,17 @@
 import Carousel from "react-multi-carousel";
 import { bannerData } from "../../consonants/data";
 import "react-multi-carousel/lib/styles.css";
-import styled from "@emotion/styled";
+import {styled} from "@mui/material";
 
-const Image = styled("img")({
-  width: "100%",
-  height: 300,
-});
+const Image = styled('img')(({ theme }) => ({
+  width:'100%',
+  height: 280,
+  [theme.breakpoints.down('md')]: {
+      objectFit: 'cover',
+      width:'100%',
+      height: 180
+  }
+}));
 
 const responsive = {
   desktop: {
@@ -37,10 +42,9 @@ export default function Banner() {
       autoPlaySpeed={2000}
 
     >
-      {bannerData.map((data) => (
-        <Image src={data.url} alt="carousel" />
+      {bannerData.map((data, index) => (
+        <Image src={data.url} alt="carousel" key={index} />
       ))}
     </Carousel>
-    //    <> </>
   );
 }

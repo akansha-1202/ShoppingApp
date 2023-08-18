@@ -1,12 +1,18 @@
-import React from "react";
 import { Box, Typography, styled } from "@mui/material";
 import { navData } from "../../consonants/data";
 
 const Component = styled(Box)`
   display: flex;
-  // margin: 55px 130px 20px 130px;
-  margin: 5% 10% 2% 10%;
-  justify-content: space-between;
+  // margin: 5% 10% 2% 10%;
+  justify-content: space-evenly;
+  padding :10px;
+  width: 100%;
+  background :#fff;
+  // margin: '55px 130px 0 130px !important',
+  // overflowX: 'overlay',
+  [theme.breakpoints.down('lg')]: {
+      margin: '0px !important'
+  }
 `;
 
 const Container = styled(Box)`
@@ -17,16 +23,17 @@ const Container = styled(Box)`
 `;
 
 const Text = styled(Typography)`
-  font-size: 0.6rem;
-  font-weight: 600;
+font-size: 14px;
+font-weight: 600;
+font-family: inherit;
 `;
 
 export default function Navbar() {
   return (
     <Component>
-      {navData.map((data) => (
-        <Container>
-          <img src={data.url} alt={data.text} style={{ width: "100%" }} />
+      {navData.map((data,index) => (
+        <Container key={index}>
+          <img src={data.url} alt={data.text} style={{ width: 64 }} />
           <Text>{data.text}</Text>
         </Container>
       ))}
