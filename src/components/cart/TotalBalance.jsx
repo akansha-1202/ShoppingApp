@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Box, Typography } from '@mui/material'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useCallback} from 'react'
 
 const Header = styled(Box)`
  padding : 15px 24px;
@@ -34,19 +34,19 @@ export default function TotalBalance({cartItems}) {
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(0);
 
-  useEffect(()=>{
-    totalAmount()
-  },[cartItems])
+  const totalAmount = useCallback(() => {
+    let totalPrice = 0, totalDiscount = 0;
+    cartItems.forEach(item => {
+      totalPrice += item.price.mrp;
+      totalDiscount += (item.price.mrp - item.price.cost);
+    });
+    setPrice(totalPrice);
+    setDiscount(totalDiscount);
+  }, [cartItems]);
 
-  const totalAmount = () => {
-    let price = 0, discount = 0;
-    cartItems.map(item => {
-      price += item.price.mrp ;
-      discount += (item.price.mrp - item.price.cost)
-  });
-   setPrice(price);
-   setDiscount(discount)
-  }
+  useEffect(() => {
+    totalAmount();
+  }, [totalAmount]);
 
   return (
     <Box>

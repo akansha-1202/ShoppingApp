@@ -45,7 +45,7 @@ export default function ActionItem({ product }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {id} = product
-  const [quantity, setQuantity] = useState(1)
+  const [quantity] = useState(1)
   
   const addItemToCart =()=>{
     dispatch(addToCart(id, quantity))
