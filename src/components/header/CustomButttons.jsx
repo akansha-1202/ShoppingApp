@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Badge, Box, Button, Typography, styled } from "@mui/material";
+import { Badge, Box, Button, styled } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {Link} from "react-router-dom"
 import {useSelector} from "react-redux"
