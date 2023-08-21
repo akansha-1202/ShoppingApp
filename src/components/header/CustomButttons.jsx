@@ -17,18 +17,7 @@ const Wrapper = styled(Box)`
   margin-left: 15%;
   margin-right: 10%;
 `;
-// const Wrapper = styled(Box)(({theme}) =>({
-//   display : 'flex',
-//   justifyContent:"space-between",
-//   alignItems : 'center',
-//   gap : '20px',
-//   marginLeft: '15%',
-//   marginRight:'10%',
-//   [theme.breakpoints.down('sm')]:{
-//     display : 'block'
-//   }
 
-// }))
 const LoginButton = styled(Button)`
   background: #22314b;
   text-transform: none;
@@ -76,7 +65,7 @@ export default function CustomButttons() {
         <Badge badgeContent={cartItems?.length} color="primary">
         <ShoppingCartIcon/>
         </Badge>
-        <Typography style={{marginLeft :8}}>Cart</Typography>
+        {/* <Typography >Cart</Typography> */}
       </Cart>
       <LoginDialog open={open} setOpen={setOpen} />
     </Wrapper>

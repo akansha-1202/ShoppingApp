@@ -17,7 +17,7 @@ const LeftComponent = styled(Box)`
 
 `;
 const Remove = styled(Button)`
-   margin-top : 20px;
+  //  margin-top : 5px;
    font-size : black;
    font-weight :600;
 `
@@ -30,17 +30,18 @@ export default function CartItem({ item }) {
   return (
     <Component>
       <LeftComponent>
-        <img src={item.url} alt="product" style={{height :110, width : 110}} />
-        <GroupedBtn/>
+        <img src={item.url} alt="product" style={{height :130, width : 140}} />
       </LeftComponent>
-      <Box style={{margin :20}}>
+      <Box style={{margin :15}}>
         <Typography>{addEllipsis(item.title.longTitle)}</Typography>
-      <Typography style={{margin : '20px 0'}}>
+        <Typography style={{margin : '5px 0'}}>
               <Box component='span' style={{ fontWeight: 600, fontSize:18  }}>₹{item.price.cost}</Box>&nbsp;&nbsp;&nbsp;
               <Box component='span' style={{ color: '#878787' }}><strike>₹{item.price.mrp}</strike></Box>&nbsp;&nbsp;&nbsp;
               <Box component='span' style={{ color: '#388E3C' }}>{item.price.discount} off</Box>
-      </Typography>
-      <Remove onClick={()=> removeItemFromCart(item.id)}>Remove</Remove>
+        </Typography>
+        <GroupedBtn/>
+        <Remove onClick={()=> removeItemFromCart(item.id)}>Remove</Remove>
+
       </Box>
 
     </Component>

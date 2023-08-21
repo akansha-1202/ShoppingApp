@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "./Navbar";
+import Nav from "./Nav";
 import Banner from "./Banner";
 import { Box, styled } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +20,7 @@ export default function Home() {
   }, [dispatch]);
   return (
     <>
-      <Navbar />
+      <Nav />
       <Component>
         <Banner />
         <Slide products={products}/>

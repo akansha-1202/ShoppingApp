@@ -59,9 +59,14 @@ export default function Slide({ products }) {
         centerMode={true}
       >
         {products.map((product, index) => (
-          <Link to={`product/${product.id}`} style={{ textDecoration: "none" }} key={index}>
-            <Box style={{ margin: "5px" }} >
-              <Image src={product.url} alt="carousel"  />
+           <Link
+           to={`/details/${encodeURIComponent(product.id)}`}
+           state={product}
+           style={{ textDecoration: "none" }}
+           key={index}
+         >
+            <Box style={{ margin: "5px" }}>
+              <Image src={product.url} alt="carousel" />
               <Text style={{ fontWeight: 600, color: "#212121" }}>
                 {product.title.shortTitle}
               </Text>

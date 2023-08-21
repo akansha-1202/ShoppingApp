@@ -5,8 +5,11 @@ import { Box } from "@mui/material";
 import Home from "./components/home/Home";
 import DataProvider from "./context/DataProvider";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DetailsView from "./components/details/DetailsView";
+// import DetailsView from "./components/details/DetailsView";
+import DetailsView2 from "./components/details/DetailsView2";
 import Cart from "./components/cart/Cart";
+import Category from "./components/category/Category";
+import SubCategory from "./components/category/SubCategory";
 
 export default function App() {
   return (
@@ -16,7 +19,11 @@ export default function App() {
         <Box style={{ marginTop: 70 }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/product/:id" element={<DetailsView />} />
+            {/* <Route path="/product/:id" element={<DetailsView2 />} /> */}
+            <Route path="/details/:id" element={<DetailsView2 />} />
+            <Route path="/:category" element={<Category />} />
+            <Route path="/products/:brand" element={<SubCategory />} />
+            {/* <Route path="/:brand" element={<Category/>}/> */}
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </Box>

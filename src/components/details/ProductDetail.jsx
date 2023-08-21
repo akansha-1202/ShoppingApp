@@ -26,7 +26,6 @@ const StyledBadge = styled(Badge)`
 `;
 
 export default function ProductDetail({product}) {
-    // const adURL = 'https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50';
     const date = new Date(new Date().getTime()+(5*24*60*60*1000));
             //Date class object //Current time//days//hrs//mins//secs//ms
   return (
@@ -35,12 +34,12 @@ export default function ProductDetail({product}) {
             <Typography
               style={{ marginTop: 5, color: "#878787", fontSize: 14 }}
             >
-              8 Ratings & 1 Reviews
+              8 Ratings & 10 Reviews
             </Typography>
             <Typography>
               <Box component='span' style={{ fontSize: 28 }}>₹{product.price.cost}</Box>&nbsp;&nbsp;&nbsp;
               <Box component='span' style={{ color: '#878787' }}><strike>₹{product.price.mrp}</strike></Box>&nbsp;&nbsp;&nbsp;
-              <Box component='span' style={{ color: '#388E3C' }}>{product.price.discount}</Box>
+              <Box component='span' style={{ color: '#388E3C' }}>{product.price.discount} off</Box>
             </Typography>
             <Typography>Available offers</Typography>
             <SmallText>

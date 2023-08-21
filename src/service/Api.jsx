@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const url = 'http://localhost:8000';
+const url = 'https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api';
 
 export const authenticateSignup = async (user) => {
     try {
-        return await axios.post(`${url}/signup`, user)
+        return await axios.post(`${url}/register`, user)
     } catch (error) {
         console.log('Error while calling Signup API: ', error);
     }
