@@ -55,17 +55,12 @@ export default function SubCategory() {
 
   const { brand } = useParams();
   console.log("hii");
-  // var titleString = params.category;
-  // titleString = titleString.toUpperCase();
-
-  //   const para = params.category;
-  //   const para2 = params.brand;
+  
   console.log(brand, "brand from subcategory");
 
   useEffect(() => {
     var url = `https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api/products/${brand}`;
 
-    // const token = localStorage.getItem("token");
     axios.get(url).then((response) => {
       console.log(response.data, "data of subcategory");
       setData(response.data);

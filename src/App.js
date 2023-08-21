@@ -10,6 +10,7 @@ import DetailsView2 from "./components/details/DetailsView2";
 import Cart from "./components/cart/Cart";
 import Category from "./components/category/Category";
 import SubCategory from "./components/category/SubCategory";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </Box>
+        <Footer/>
       </BrowserRouter>
     </DataProvider>
   );

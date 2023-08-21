@@ -1,0 +1,194 @@
+
+.TheMainFooter {
+    display: flex;
+    background-color: black;
+    /* background-color: rgb(156, 68, 46); */
+    color: #ffffff;
+    justify-content: center;
+    min-height: 10rem;
+    /* position: absolute; */
+    /* bottom: 0px; */
+}
+
+.FRefernce {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.theFWidth {
+    width: 90%;
+}
+
+.FGridCont{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 100%;
+}
+
+.FSecCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.center{
+    padding-top: 1rem;
+}
+
+.Fcontact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+}
+
+.theFProp {
+    display: flex;
+}
+
+
+.FmiddleCon {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.FmiddleSubCon {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.lastFText {
+    font-size: 15px;
+    font-style: normal;
+}
+
+pre{
+    font-family: inherit;
+}
+
+.Flinks{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+@media  (min-width:600px) and (max-width:1000px){
+
+
+    .TheMainFooter{
+        /* font-size: 12px; */
+        font-size: 14px;
+    }
+    .Fcontact {
+       padding-top: 2.5rem;
+    }
+
+    .FGridCont {    
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+    }
+
+    .theFWidth {
+        width: 95%;
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    .FmiddleSubCon{
+        height: auto;
+        line-height: 14px;
+    } 
+    .FGridCont {
+        display: block;
+      }
+
+
+
+.FSecCon {
+    position: relative;
+    left: 1rem;
+    width: 80%;
+    gap: 3px;
+    font-size: 15px;
+  }
+  .fLogo{
+    margin-top: -0.5rem;
+  }
+  
+  .FmiddleCon {
+    gap: 6px;
+  }
+  
+  
+  .FmiddleSubCon {
+    gap: 10px;
+    line-height: 20px;
+  }
+  
+  
+  .Fcontact {
+    position: relative;
+      left: 1rem;
+      width: 80%;
+      font-size: 14px;
+      gap: 1px;
+      padding-top: 1rem;
+  }
+  
+  .lastFText {
+    font-size: 15px;
+  }
+  
+  .FRefernce {
+    position: relative;
+      left: 1rem;
+      width: 80%;
+      font-size: 14px;
+      gap: 1px;
+  }
+  
+.theFWidth {
+    width: 95%;
+}
+
+
+
+}
+
+.theFooterLogoPar{
+    text-align: center;
+    padding-top: 2rem;
+  }
+  
+  .verticleT{
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      font-size: initial;
+  }
+  @media  (min-width:600px) and (max-width:1000px){
+    .verticleT{
+        font-size: 14px;
+    }
+  }
+  
+  
+  @media (max-width:600px){
+  
+  .verticleT{
+    font-size: 11px;
+  }
+  
+  }

@@ -24,6 +24,13 @@ export default function Home() {
       <Component>
         <Banner />
         <Slide products={products}/>
+        <div>
+          <img
+            src="https://cdn.rentechdigital.com/common_files/blogs/12-growth-strategies-for-ecommerce-marketers-of-all-niches-swipecart-blog-img-02-27-06-2022.gif"
+            alt="gif"
+            style={{width: '100%', height: '59vh', objectFit:"cover"}}
+          />
+        </div>
       </Component>
     </>
   );

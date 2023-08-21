@@ -18,12 +18,13 @@ const DealText = styled(Typography)`
 `;
 
 const Image = styled("img")({
-  width: "auto",
-  height: 150,
+  // width: "auto",
+  height: 140,
+  objectFit:"contain"
 });
 
 const Text = styled(Typography)`
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
 `;
 
@@ -65,13 +66,13 @@ export default function Slide({ products }) {
            style={{ textDecoration: "none" }}
            key={index}
          >
-            <Box style={{ margin: "5px" }}>
+            <Box style={{ margin: "5px", display:"flex", flexDirection:"column", justifiyContent:"center", alignItem : "center"}}>
               <Image src={product.url} alt="carousel" />
-              <Text style={{ fontWeight: 600, color: "#212121" }}>
+              <Text style={{ fontWeight: 600, color: "#212121",textAlign:"center" }}>
                 {product.title.shortTitle}
               </Text>
-              <Text style={{ color: "green" }}>{product.discount}</Text>
-              <Text style={{ color: "green" }}>{product.tagline}</Text>
+              <Text style={{ color: "green",textAlign:"center" }}>{product.discount}</Text>
+              <Text style={{ color: "green",textAlign:"center" }}>{product.tagline}</Text>
             </Box>
           </Link>
         ))}
