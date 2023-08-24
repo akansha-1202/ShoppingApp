@@ -37,8 +37,8 @@ export default function TotalBalance({cartItems}) {
   const totalAmount = useCallback(() => {
     let totalPrice = 0, totalDiscount = 0;
     cartItems.forEach(item => {
-      totalPrice += item.price.mrp;
-      totalDiscount += (item.price.mrp - item.price.cost);
+      totalPrice += item.price.mrp * item.quantity;
+      totalDiscount += ((item.price.mrp* item.quantity) - item.price.cost * item.quantity);
     });
     setPrice(totalPrice);
     setDiscount(totalDiscount);

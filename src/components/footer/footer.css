@@ -8,6 +8,7 @@
     min-height: 10rem;
     /* position: absolute; */
     /* bottom: 0px; */
+
 }
 
 .FRefernce {
@@ -105,6 +106,9 @@ pre{
 
 
 @media (max-width:600px){
+    .TheMainFooter{
+         width: 98%;
+    }
 
     .FmiddleSubCon{
         height: auto;

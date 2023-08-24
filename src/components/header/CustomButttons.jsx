@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Badge, Box, Button, styled } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import {Link} from "react-router-dom"
-import {useSelector} from "react-redux"
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 //components
 import LoginDialog from "../login/LoginDialog";
@@ -21,18 +21,19 @@ const Wrapper = styled(Box)`
 const LoginButton = styled(Button)`
   background: #22314b;
   text-transform: none;
-  padding: 5px 40px;
+  padding: 5px 30px;
   border-radius: 2px;
   box-shadow: none;
+  width: 15%;
 `;
 
 const Cart = styled(Link)`
   display: flex;
-  text-decoration : none;
-  color:white;
+  text-decoration: none;
+  color: white;
 `;
 
-export default function CustomButttons() {
+export default function CustomButttons({ orderPlaced }) {
   const [open, setOpen] = useState(false);
   const { account, setAccount } = useContext(LoginContext);
 
@@ -40,12 +41,13 @@ export default function CustomButttons() {
     setOpen(true);
   };
 
-  const {cartItems} = useSelector(state => state.cart)
+  const { cartItems } = useSelector((state) => state.cart);
+
   return (
     <Wrapper>
-      {account ? 
-        <Profile account={account} setAccount={setAccount}/>
-       : 
+      {account ? (
+        <Profile account={account} setAccount={setAccount} />
+      ) : (
         <LoginButton
           variant="contained"
           sx={{
@@ -60,10 +62,15 @@ export default function CustomButttons() {
         >
           Login
         </LoginButton>
-      }
-      <Cart to='/cart'>
-        <Badge badgeContent={cartItems?.length} color="primary">
-        <ShoppingCartIcon/>
+      )}
+      <Cart to="/cart">
+        <Badge
+          badgeContent={orderPlaced ? 0 : cartItems?.length}
+          // badgeContent={cartItems?.length}
+
+          color="primary"
+        >
+          <ShoppingCartIcon />
         </Badge>
         {/* <Typography >Cart</Typography> */}
       </Cart>

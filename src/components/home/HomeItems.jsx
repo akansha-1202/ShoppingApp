@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Nav from "../home/Nav";
 import { Box, Button, Typography, styled } from "@mui/material";
 
 const Parent = styled(Box)(({ theme }) => ({
@@ -22,7 +21,7 @@ const Child = styled(Link)(({ theme }) => ({
   flexDirection: "column",
   border: "1px solid none",
   textDecoration: "none",
-   color: "black",
+  color: "black",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
   },
@@ -30,9 +29,9 @@ const Child = styled(Link)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   gap: "5px",
-    padding: "1%",
+  padding: "1%",
   borderRadius: "2px",
-    backgroundColor: "#fff",
+  backgroundColor: "#fff",
 }));
 
 const Image = styled("img")({
@@ -50,63 +49,58 @@ const Text = styled(Typography)`
   font-size: 14px;
 `;
 
-export default function Category() {
+export default function HomeItems() {
   const [data, setData] = useState([]);
 
   const params = useParams();
-  var titleString = params.category;
-  titleString = titleString.toUpperCase();
 
-  const para = params.category;
-  // const para2 = params.brand;
 
   useEffect(() => {
-    var url = "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api/products";
-    // const url="http://localhost:9000/api/products"
+    var url =
+      "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api/products";
 
-
-    // const token = localStorage.getItem("token");
     axios.get(url).then((response) => {
       console.log(response.data);
       setData(response.data);
     });
   }, [params]);
 
-  // useEffect(()=>)
-
   return (
     <Box>
-      <Nav />
-      <Typography>{titleString}</Typography>
+      <Typography style={{ textAlign: "center", fontWeight:"bold", textDecoration:"underline", fontSize:"22px"}}>
+        All Category Products
+      </Typography>
       <Parent>
         {data
           .filter((e) => {
-            return e.category === para;
+            return e.category === "Home";
           })
           .map((item, index) => (
-              <Child  to={`/details/${encodeURIComponent(item.id)}`}
+            <Child
+              to={`/details/${encodeURIComponent(item.id)}`}
               state={item}
-              key={index}>
-                <Image src={item.url} alt="img" />
-                <Text>{item.title.shortTitle}</Text>
-                <Text>Sale Price: ₹{item.price.cost}</Text>
-                <Text style={{ color: "#878787" }}>
-                  M.R.P.:
-                  <strike>₹{item.price.mrp}</strike>
-                </Text>
-                <Text>Rating :{item.rating}⭐</Text>
+              key={index}
+            >
+              <Image src={item.url} alt="img" />
+              <Text>{item.title.shortTitle}</Text>
+              <Text>Sale Price: ₹{item.price.cost}</Text>
+              <Text style={{ color: "#878787" }}>
+                M.R.P.:
+                <strike>₹{item.price.mrp}</strike>
+              </Text>
+              <Text>Rating :{item.rating}⭐</Text>
 
-                <CartBtn
-                  sx={{
-                    ":hover": {
-                      bgcolor: "#EEE0C9",
-                      color: " #22314B",
-                    },
-                  }}
-                >
-                  Add To Cart
-                </CartBtn>
-              </Child>
+              <CartBtn
+                sx={{
+                  ":hover": {
+                    bgcolor: "#EEE0C9",
+                    color: " #22314B",
+                  },
+                }}
+              >
+                Add To Cart
+              </CartBtn>
+            </Child>
           ))}
       </Parent>
     </Box>

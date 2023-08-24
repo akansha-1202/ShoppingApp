@@ -18,19 +18,38 @@ export const removeFromCart = (id) => async (dispatch) => {
 };
 
 
-// actions.js
-export const fetchItems = () =>async (dispatch) => {
-    try {
-      const response = await fetch('/api/items'); // Replace with your API endpoint
-      const data = await response.json();
-      dispatch({
-        type: 'FETCH_ITEMS_SUCCESS',
-        items: data
-      });
-    } catch (error) {
-      dispatch({
-        type: 'FETCH_ITEMS_FAILURE',
-        error: 'Error fetching items'
-      });
-    }
-  };
+export const clearCart = (id) => async (dispatch) => {
+  dispatch({ type: actionType.CLEAR_CART, payload: id });
+};
+
+
+export const incrementQuantity = (id, quantity) => async (dispatch) => {
+  dispatch({
+    type: actionType.INCREMENT_QUANTITY,
+    payload: { id, quantity },
+  });
+};
+
+export const decrementQuantity = (id, quantity) => async (dispatch) =>{
+  dispatch ({
+    type: actionType.DECREMENT_QUANTITY,
+    payload: { id, quantity },
+  });
+};
+
+// // actions.js
+// export const fetchItems = () =>async (dispatch) => {
+//     try {
+//       const response = await fetch('/api/items'); // Replace with your API endpoint
+//       const data = await response.json();
+//       dispatch({
+//         type: 'FETCH_ITEMS_SUCCESS',
+//         items: data
+//       });
+//     } catch (error) {
+//       dispatch({
+//         type: 'FETCH_ITEMS_FAILURE',
+//         error: 'Error fetching items'
+//       });
+//     }
+//   };

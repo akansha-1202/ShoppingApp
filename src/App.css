@@ -1,6 +1,7 @@
 * {
   padding: 0px;
   margin: 0px;
+  box-sizing: border-box;
 }
 .logo {
   /* width: 20%; */
@@ -26,6 +27,12 @@
   .slogan {
     width: 20vw;
     /* margin-left: 20%; */
+  }
+  .login {
+    background: url("./assets/login.png") center no-repeat;
+    background-size: 25vw;
+    background-position: top right;
+    color: white;
   }
 }
 

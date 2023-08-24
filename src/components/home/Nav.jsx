@@ -7,9 +7,9 @@ const Component = styled(Box)`
   display: flex;
   // margin: 5% 10% 2% 10%;
   justify-content: space-evenly;
-  padding :10px;
-  width: 96vw;
-  background :#fff;
+  // padding :5px;
+  width: 95vw;
+  // background :#fff;
   // margin: '55px 130px 0 130px !important',
   // overflowX: 'overlay',
   // [theme.breakpoints.down('lg')]: {

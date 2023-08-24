@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const url = 'https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api';
+// const url="http://localhost:9000/api"
 
 export const authenticateSignup = async (user) => {
     try {

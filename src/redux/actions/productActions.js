@@ -1,5 +1,6 @@
 import * as actionTypes from "../constants/productConstant";
 import axios from "axios";
+// const URL="http://localhost:9000/api"
 
 const URL = "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api";
 //using thunk as middleware
@@ -32,20 +33,20 @@ export const getProductDetails = (id) => async (dispatch) => {
   }
 };
 
-export const getProductDetailsCategory = (brand) => async (dispatch) => {
-  try {
-    dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
+// export const getProductDetailsCategory = (brand) => async (dispatch) => {
+//   try {
+//     dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`${URL}/products/${brand}`);
+//     const { data } = await axios.get(`${URL}/products/${brand}`);
 
-    dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: actionTypes.GET_PRODUCT_DETAILS_FAIL,
-      payload: error.response,
-    });
-  }
-};
+//     dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS, payload: data });
+//   } catch (error) {
+//     dispatch({
+//       type: actionTypes.GET_PRODUCT_DETAILS_FAIL,
+//       payload: error.response,
+//     });
+//   }
+// };
 
 // export const removeProductDetails = () => (dispatch) => {
 

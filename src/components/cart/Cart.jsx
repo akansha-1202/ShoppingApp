@@ -1,9 +1,12 @@
 import React from 'react'
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
 import {Grid, Typography, Box, Button, styled} from "@mui/material"
 import CartItem from './CartItem'
 import TotalBalance from './TotalBalance'
 import EmptyCart from './EmptyCart'
+import { useNavigate } from 'react-router-dom'
+import { clearCart } from "../../redux/actions/cartActions";
+
 
 const Container = styled(Grid)(({ theme }) => ({
   padding: '30px 135px',
@@ -45,6 +48,14 @@ const LeftComponent = styled(Grid)(({ theme }) => ({
 
 export default function Cart() {
   const {cartItems} = useSelector(state => state.cart)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handlePlaceOrder = () => {
+    // Clear the cart after placing the order
+    dispatch(clearCart());
+  };
+
+  
   return (
     <>
     {
@@ -60,7 +71,12 @@ export default function Cart() {
               ) )
             }
             <PlaceOrder>
-              <StyledBtn>Place Order</StyledBtn>
+              <StyledBtn onClick={() => {
+                    cartItems.length = 0;
+                    handlePlaceOrder();
+                    alert("Order Placed Successfully");
+                    navigate('/');
+                }}>Place Order</StyledBtn>
             </PlaceOrder>
         </LeftComponent>
         <Grid item lg ={3} md={3} sm={12} xs={12}>

@@ -20,7 +20,7 @@ const DealText = styled(Typography)`
 const Image = styled("img")({
   // width: "auto",
   height: 140,
-  objectFit:"contain"
+  objectFit: "contain",
 });
 
 const Text = styled(Typography)`
@@ -39,11 +39,16 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 2,
   },
 };
 
 export default function Slide({ products }) {
+  // console.log(products, "slide");
+  const homeProducts = products.filter(
+    (product) => product.category === "Home"
+  );
+
   return (
     <Component>
       <DealText>Deal of the Day</DealText>
@@ -59,20 +64,38 @@ export default function Slide({ products }) {
         autoPlaySpeed={2000}
         centerMode={true}
       >
-        {products.map((product, index) => (
-           <Link
-           to={`/details/${encodeURIComponent(product.id)}`}
-           state={product}
-           style={{ textDecoration: "none" }}
-           key={index}
-         >
-            <Box style={{ margin: "5px", display:"flex", flexDirection:"column", justifiyContent:"center", alignItem : "center"}}>
+        {homeProducts.map((product, index) => (
+          <Link
+            to={`/details/${encodeURIComponent(product.id)}`}
+            state={product}
+            style={{ textDecoration: "none" }}
+            key={index}
+          >
+            <Box
+              style={{
+                margin: "5px",
+                display: "flex",
+                flexDirection: "column",
+                justifiyContent: "center",
+                alignItem: "center",
+              }}
+            >
               <Image src={product.url} alt="carousel" />
-              <Text style={{ fontWeight: 600, color: "#212121",textAlign:"center" }}>
+              <Text
+                style={{
+                  fontWeight: 600,
+                  color: "#212121",
+                  textAlign: "center",
+                }}
+              >
                 {product.title.shortTitle}
               </Text>
-              <Text style={{ color: "green",textAlign:"center" }}>{product.discount}</Text>
-              <Text style={{ color: "green",textAlign:"center" }}>{product.tagline}</Text>
+              <Text style={{ color: "green", textAlign: "center" }}>
+                {product.discount}
+              </Text>
+              <Text style={{ color: "green", textAlign: "center" }}>
+                {product.tagline}
+              </Text>
             </Box>
           </Link>
         ))}

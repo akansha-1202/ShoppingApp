@@ -1,19 +1,32 @@
-import { Button,ButtonGroup,styled } from '@mui/material'
-import React from 'react'
+import { Button, ButtonGroup, styled } from '@mui/material';
+import React from 'react';
+import { useDispatch } from "react-redux";
+import { incrementQuantity, decrementQuantity } from "../../redux/actions/cartActions";
 
 const Component = styled(ButtonGroup)`
-    margin-top :30px;
- `
+    margin-top: 30px;
+`;
 
- const StyledBtn = styled(Button)`
-     border-radius : 50%;
- `
-export default function GroupedBtn() {
+const StyledBtn = styled(Button)`
+    border-radius: 50%;
+`;
+
+export default function GroupedBtn({ item }) {
+  const dispatch = useDispatch();
+
+  const increment = (id) => {
+    dispatch(incrementQuantity(id, item.quantity)); // Passing only the id
+  };
+
+  const decrement = (id) => {
+    dispatch(decrementQuantity(id, item.quantity)); // Passing only the id
+  };
+
   return (
     <Component>
-        <StyledBtn>-</StyledBtn>
-        <Button disabled>1</Button>
-        <StyledBtn>+</StyledBtn>
+      <StyledBtn onClick={() => decrement(item.id)}>-</StyledBtn>
+      <Button>{item.quantity}</Button>
+      <StyledBtn onClick={() => increment(item.id)}>+</StyledBtn>
     </Component>
-  )
+  );
 }

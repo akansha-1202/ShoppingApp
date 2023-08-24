@@ -8,8 +8,13 @@ import { Link } from "react-router-dom";
 
 const StyledHeader = styled(AppBar)`
   background: #96b6c5;
-  //   background : white;
   height: 65px;
+  padding: 0px;
+  width: 100%;
+
+  @media (max-width: 600px) {
+     width : 99%;
+  }
 `;
 
 const Component = styled(Link)`
@@ -27,7 +32,7 @@ const SubHeading = styled(Typography)`
 export default function Header() {
   return (
     <StyledHeader>
-      <Toolbar style={{ minHeight: 60 }}>
+      <Toolbar style={{ minHeight: 60}}>
         <Component to='/' >
           <img src={logo} alt="logo" className="logo" />
           <SubHeading className="slogan">One for All</SubHeading>
