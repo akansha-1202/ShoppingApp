@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Badge, Box, Button, styled } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
@@ -36,17 +36,30 @@ const Cart = styled(Link)`
 export default function CustomButttons({ orderPlaced }) {
   const [open, setOpen] = useState(false);
   const { account, setAccount } = useContext(LoginContext);
+  const [name, setName] = useState(null)
 
   const openDialog = () => {
     setOpen(true);
   };
 
+useEffect(()=>{
+  const firstName = localStorage.getItem("firstName")
+  if(firstName){
+    setName(firstName)
+  }
+  else{
+    setName(null)
+  }
+}
+,[localStorage.getItem("firstName")])
+ 
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
     <Wrapper>
-      {account ? (
-        <Profile account={account} setAccount={setAccount} />
+      {name ? (
+        // <Profile account={account} setAccount={setAccount} />
+        <Profile account={account} setAccount={setAccount} name={name}/>
       ) : (
         <LoginButton
           variant="contained"

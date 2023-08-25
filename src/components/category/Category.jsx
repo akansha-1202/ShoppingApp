@@ -61,18 +61,16 @@ export default function Category() {
   // const para2 = params.brand;
 
   useEffect(() => {
-    var url = "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api/products";
+    var url = "https://e-com-server-akansha-1202.vercel.app/api/products";
     // const url="http://localhost:9000/api/products"
 
 
-    // const token = localStorage.getItem("token");
     axios.get(url).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setData(response.data);
     });
   }, [params]);
 
-  // useEffect(()=>)
 
   return (
     <Box>

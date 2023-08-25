@@ -33,6 +33,7 @@ const RightContainer = styled(Grid)`
 export default function DetailsView2() {
     const product = useLocation().state;
     console.log("useLocation : ", product);
+    
   return (
     <Component>
       {product && Object.keys(product).length && (

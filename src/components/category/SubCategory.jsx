@@ -59,7 +59,7 @@ export default function SubCategory() {
   console.log(brand, "brand from subcategory");
 
   useEffect(() => {
-    var url = `https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api/products/${brand}`;
+    var url = `https://e-com-server-akansha-1202.vercel.app/api/products/${brand}`;
 
     axios.get(url).then((response) => {
       console.log(response.data, "data of subcategory");

@@ -27,6 +27,8 @@ export default function App() {
             <Route path="/products/:brand" element={<SubCategory />} />
             {/* <Route path="/:brand" element={<Category/>}/> */}
             <Route path="/cart" element={<Cart />} />
+            <Route path="/addToCart/:id" element={<Cart />} />
+
             <Route path="/register" element={<LoginDialog/>}/>
             <Route path="/login" element={<LoginDialog/>}/>
 

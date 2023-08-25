@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Box, Button, Typography, styled } from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
 
 const Parent = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -39,11 +39,11 @@ const Image = styled("img")({
   height: 150,
 });
 
-const CartBtn = styled(Button)`
-  width: 120px;
-  background: #22314b;
-  color: white;
-`;
+// const CartBtn = styled(Button)`
+//   width: 120px;
+//   background: #22314b;
+//   color: white;
+// `;
 
 const Text = styled(Typography)`
   font-size: 14px;
@@ -54,20 +54,26 @@ export default function HomeItems() {
 
   const params = useParams();
 
-
   useEffect(() => {
     var url =
       "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api/products";
 
     axios.get(url).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setData(response.data);
     });
   }, [params]);
 
   return (
     <Box>
-      <Typography style={{ textAlign: "center", fontWeight:"bold", textDecoration:"underline", fontSize:"22px"}}>
+      <Typography
+        style={{
+          textAlign: "center",
+          fontWeight: "bold",
+          textDecoration: "underline",
+          fontSize: "22px",
+        }}
+      >
         All Category Products
       </Typography>
       <Parent>
@@ -90,7 +96,8 @@ export default function HomeItems() {
               </Text>
               <Text>Rating :{item.rating}⭐</Text>
 
-              <CartBtn
+              {/* <CartBtn
+              
                 sx={{
                   ":hover": {
                     bgcolor: "#EEE0C9",
@@ -99,7 +106,7 @@ export default function HomeItems() {
                 }}
               >
                 Add To Cart
-              </CartBtn>
+              </CartBtn> */}
             </Child>
           ))}
       </Parent>

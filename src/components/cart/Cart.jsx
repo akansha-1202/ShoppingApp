@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import {Grid, Typography, Box, Button, styled} from "@mui/material"
 import CartItem from './CartItem'
@@ -6,6 +6,8 @@ import TotalBalance from './TotalBalance'
 import EmptyCart from './EmptyCart'
 import { useNavigate } from 'react-router-dom'
 import { clearCart } from "../../redux/actions/cartActions";
+import { toast } from 'react-toastify'
+
 
 
 const Container = styled(Grid)(({ theme }) => ({
@@ -48,13 +50,22 @@ const LeftComponent = styled(Grid)(({ theme }) => ({
 
 export default function Cart() {
   const {cartItems} = useSelector(state => state.cart)
+  // const [storeCartItems, setCartItems] = useState([]);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handlePlaceOrder = () => {
     // Clear the cart after placing the order
     dispatch(clearCart());
+    toast.success(`Order Placed Successfully`, {
+      position: toast.POSITION.TOP_RIGHT}) 
   };
 
+  // useEffect(() => {
+  //   const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  //   setCartItems(existingCartItems);
+  // }, []);
+  
   
   return (
     <>
@@ -74,7 +85,6 @@ export default function Cart() {
               <StyledBtn onClick={() => {
                     cartItems.length = 0;
                     handlePlaceOrder();
-                    alert("Order Placed Successfully");
                     navigate('/');
                 }}>Place Order</StyledBtn>
             </PlaceOrder>

@@ -8,14 +8,14 @@ import Slide from "./Slide";
 import HomeItems from "./HomeItems";
 import Perks from "./Perks";
 const Component = styled(Box)`
-  padding: 10px 10px;
+  padding: 5px 5px;
   background: #f2f2f2;
 `;
 
 export default function Home() {
   const dispatch = useDispatch();
   const {products} = useSelector( state => state.getProducts);
-  console.log(products,"home");
+  // console.log(products,"home");
 
   useEffect(() => {
     dispatch(getProducts());

@@ -2,7 +2,8 @@ import * as actionTypes from "../constants/productConstant";
 import axios from "axios";
 // const URL="http://localhost:9000/api"
 
-const URL = "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api";
+const URL = "https://e-com-server-akansha-1202.vercel.app/api";
+
 //using thunk as middleware
 export const getProducts = () => async (dispatch) => {
   try {
@@ -10,7 +11,7 @@ export const getProducts = () => async (dispatch) => {
     dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
 
     const { data } = await axios.get(`${URL}/products `); //it extracted from response->data[]->data
-    console.log(data);
+    // console.log(data);
     dispatch({ type: actionTypes.GET_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: actionTypes.GET_PRODUCTS_FAIL, payload: error.response });

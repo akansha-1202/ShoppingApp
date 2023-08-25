@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/actions/cartActions";
-import toast, { Toaster } from "react-hot-toast";
+import { toast } from 'react-toastify'
+import axios from "axios"
 
 const LeftContainer = styled(Box)(({ theme }) => ({
   minWidth: "40%",
@@ -38,6 +39,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down("sm")]: {
     width: "48%",
+    fontSize : "12px",
   },
 }));
 
@@ -47,10 +49,40 @@ export default function ActionItem({ product }) {
   const { id } = product;
   const [quantity] = useState(1);
 
-  const addItemToCart = () => {
-    dispatch(addToCart(id, quantity));
-    navigate("/cart");
+  const addItemToCart = async () => {
+    try {
+
+      const token = localStorage.getItem("loginToken")
+      const headers = {
+        // "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      };
+      // console.log(id,quantity,headers);
+      const response = await axios.post(
+        `https://e-com-server-akansha-1202.vercel.app/api/addToCart/${id}`,
+        { quantity }, // Modify this if your backend expects different data
+        { headers }
+      );
+
+      if (response.status === 200) {
+        dispatch(addToCart(id, quantity));
+
+        toast.success(`Item added to cart`, {
+          position: toast.POSITION.TOP_RIGHT})      
+                 navigate("/cart");
+      } else {
+        toast.success(`Please Login First `, {
+          position: toast.POSITION.TOP_RIGHT}) 
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Please Login First");
+    }
   };
+  // const addItemToCart = () => {
+  //   dispatch(addToCart(id, quantity));
+  //   // navigate("/cart");
+  // };
   return (
     <LeftContainer>
       <Box style={{ padding: "15px 20px", border: "1px solid #f0f0f0" }}>
@@ -61,12 +93,10 @@ export default function ActionItem({ product }) {
         style={{ marginRight: 10, background: "#ff9f00" }}
         onClick={() => {
           addItemToCart();
-          toast.success("Item added to Cart");
         }}
       >
         Add to Cart
       </StyledButton>
-      <Toaster />
       {/* <StyledButton variant="contained" style={{ background: "#fb641b" }}>
         Buy Now
       </StyledButton> */}

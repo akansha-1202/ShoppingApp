@@ -1,7 +1,9 @@
 import axios from "axios";
 import * as actionType from "../constants/cartConstants";
 
-const URL = "https://e-com-server-4tx7wd1ou-akansha-1202.vercel.app/api";
+const URL = "https://e-com-server-akansha-1202.vercel.app/api";
+// const URL = "http://localhost:9000/api"
+
 
 export const addToCart = (id, quantity) => async (dispatch) => {
   try {
