@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -33,10 +34,10 @@ const Footer = () => {
           <div className="Fcontact">
             <h3>Contact</h3>
             <div>
-              <span className="LocEmoji">📍</span> 101, Indiranagar, Bangalore.
+              <span className="LocEmoji">📍</span> 324, Gomti Nagar, Lucknow
             </div>
             <div>
-              <span className="PhoneEmoji">📞</span> +91 8080 1818
+              <span className="PhoneEmoji">📞</span> +91 987654321
             </div>
             <div className="lastFText">
               <pre>
@@ -51,28 +52,28 @@ const Footer = () => {
               <a className="Flinks" href="https://pinchofyum.com/blog"></a>Home
             </div> */}
             <div className="TheFBollywood">
-              <a
+              <Link
                 className="Flinks"
                 href="https://www.flipkart.com/mobile-phones-store"
               >
                 Mobile
-              </a>
+              </Link>
             </div>
             <div className="TheFHollywood">
-              <a
+              <Link
                 className="Flinks"
-                href="https://www.amazon.in/s?k=tablet&crid=14D0S23UIB2TQ&sprefix=tablet%2Caps%2C344&ref=nb_sb_noss_2"
+                to="/Tablet"
               >
                 Tablet
-              </a>
+              </Link>
             </div>
             <div className="TheFTechnology">
-              <a
+              <Link
                 className="Flinks"
                 href="https://www.amazon.in/s?k=laptop%27&adgrpid=58360032709&ext_vrnc=hi&hvadid=398120291510&hvdev=c&hvlocphy=9300710&hvnetw=g&hvqmt=e&hvrand=17169184387492782806&hvtargid=kwd-313781558043&hydadcr=26418_2176895&tag=googinhydr1-21&ref=pd_sl_46gg5xmcuk_e"
               >
                 Laptop
-              </a>
+              </Link>
             </div>
             <div className="TheFFitness">
               <a

@@ -160,7 +160,6 @@ export default function LoginDialog({ open, setOpen }) {
     else{
       alert(response.data.message)
     }
-   
   };
 
 

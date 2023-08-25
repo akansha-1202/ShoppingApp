@@ -3,7 +3,7 @@ import { Typography, Box, styled } from '@mui/material';
 
 const Component = styled(Box)`
     width: 80%%;
-    height: 65vh;
+    min-height: 45.3vh;
     background: #fff;
     margin: 80px 140px;
     @media (max-width: 600px) {

@@ -73,10 +73,10 @@ export default function Category() {
 
 
   return (
-    <Box>
+    <Box >
       <Nav />
-      <Typography>{titleString}</Typography>
-      <Parent>
+      {/* <Typography style={{textAlign:"center"}}>{titleString}</Typography> */}
+      <Parent style={{minHeight : "41vh"}}>
         {data
           .filter((e) => {
             return e.category === para;

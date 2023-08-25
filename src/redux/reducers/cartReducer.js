@@ -102,7 +102,7 @@ export const cartReducer = (
               }
             : item
         )
-        .filter((item) => item.id !== action.payload.id); // Remove the item with the specified ID
+        // .filter((item) => item.id !== 1); // Remove the item with the specified ID
 
       localStorage.setItem(
         "cartItems",

@@ -41,9 +41,8 @@ export default function CustomButttons({ orderPlaced }) {
   const openDialog = () => {
     setOpen(true);
   };
-
-useEffect(()=>{
   const firstName = localStorage.getItem("firstName")
+useEffect(()=>{
   if(firstName){
     setName(firstName)
   }

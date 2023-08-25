@@ -38,14 +38,14 @@ export default function CartItem({ item }) {
           <Box component="span" style={{ fontWeight: 600, fontSize: 18 }}>
             ₹{item.price.cost}
           </Box>
-          &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;
           <Box component="span" style={{ color: "#878787" }}>
             <strike>₹{item.price.mrp}</strike>
           </Box>
-          {/* &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;
           <Box component="span" style={{ color: "#388E3C" }}>
             {item.price.discount} off
-          </Box> */}
+          </Box>
         </Typography>
         <GroupedBtn item={item}/>
         <Remove onClick={() => removeItemFromCart(item.id)}>Remove</Remove>
