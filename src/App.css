@@ -3,6 +3,7 @@
   margin: 0px;
   box-sizing: border-box;
 }
+
 .logo {
   /* width: 20%; */
   width:90px;
@@ -33,6 +34,12 @@
     background-size: 25vw;
     background-position: top right;
     color: white;
+  }
+  html{
+    width: 100%;
+  }
+  body{
+    width: 99.5%;
   }
 }
 

@@ -26,7 +26,7 @@ export default function Dropdown({ text, subCat }) {
   return (
     <>
       <Box onClick={handleClick}>
-        <Typography style={{ marginTop: 2, cursor: "pointer", fontSize:"12px" }}>
+        <Typography style={{ marginTop: 2, cursor: "pointer", fontSize:"10px" }}>
           {text}
         </Typography>
       </Box>

@@ -93,7 +93,7 @@ export default function Profile({ account, setAccount,name }) {
   return (
     <>
       <Box onClick={handleClick} sx={{ cursor: "pointer", marginTop: 2 }}>
-        <Typography>{name}</Typography>
+        <Typography >{name}</Typography>
       </Box>
       <Component
         anchorEl={open}

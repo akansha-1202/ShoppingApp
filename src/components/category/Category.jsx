@@ -54,8 +54,8 @@ export default function Category() {
   const [data, setData] = useState([]);
 
   const params = useParams();
-  var titleString = params.category;
-  titleString = titleString.toUpperCase();
+  // var titleString = params.category;
+  // titleString = titleString.toUpperCase();
 
   const para = params.category;
   // const para2 = params.brand;

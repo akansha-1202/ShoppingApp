@@ -36,7 +36,7 @@ export default function Nav() {
       {
       navData.map((data,index) => (
         <Container key={index} to={`/${data.text}`} style={{ textDecoration: "none" , color:"black"}}>
-          <img src={data.url} alt={data.text} style={{ width: 64 }} />
+          <img src={data.url} alt={data.text} style={{ width: 45,marginLeft:"-1%" }} />
           {/* <Text>{data.text}</Text> */}
           <Dropdown text={data.text} subCat={data.subCat} />
         </Container>

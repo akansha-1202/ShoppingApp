@@ -50,30 +50,6 @@ export const cartReducer = (
         cartItems: [],
       };
 
-    // case actionTypes.INCREMENT_QUANTITY:
-    //   return {
-    //     ...state,
-    //     cartItems: state.cartItems.map((item) =>
-    //       item.id === action.payload.id
-    //         ? { ...item, quantity: item.quantity + 1 }
-    //         : item
-    //     )
-    //     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-
-    //   };
-
-    // case actionTypes.DECREMENT_QUANTITY:
-    //   return {
-    //     ...state,
-    //     cartItems: state.cartItems.map((item) =>
-    //       item.id === action.payload.id
-    //         ? {
-    //             ...item,
-    //             quantity: item.quantity > 1 ? item.quantity - 1 : item.quantity,
-    //           }
-    //         : item
-    //     ),
-    //   };
 
     case actionTypes.INCREMENT_QUANTITY:
       const updatedCartItemsIncrement = state.cartItems.map((item) =>
@@ -92,27 +68,28 @@ export const cartReducer = (
         cartItems: updatedCartItemsIncrement,
       };
 
-    case actionTypes.DECREMENT_QUANTITY:
-      const updatedCartItemsDecrement = state.cartItems
-        .map((item) =>
-          item.id === action.payload.id
-            ? {
-                ...item,
-                quantity: item.quantity > 1 ? item.quantity - 1 : item.quantity,
-              }
-            : item
-        )
-        // .filter((item) => item.id !== 1); // Remove the item with the specified ID
-
-      localStorage.setItem(
-        "cartItems",
-        JSON.stringify(updatedCartItemsDecrement)
-      );
-
-      return {
-        ...state,
-        cartItems: updatedCartItemsDecrement,
-      };
+      case actionTypes.DECREMENT_QUANTITY:
+        const updatedCartItemsDecrement = state.cartItems
+          .map((item) =>
+            item.id === action.payload.id
+              ? {
+                  ...item,
+                  quantity: item.quantity > 1 ? item.quantity - 1 : 0, // Ensure quantity is not negative
+                }
+              : item
+          )
+          .filter((item) => item.quantity > 0); // Remove items with quantity less than 1
+      
+        localStorage.setItem(
+          "cartItems",
+          JSON.stringify(updatedCartItemsDecrement)
+        );
+      
+        return {
+          ...state,
+          cartItems: updatedCartItemsDecrement,
+        };
+      
 
     default:
       return state;

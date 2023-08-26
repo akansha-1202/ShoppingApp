@@ -67,7 +67,6 @@ export default function SubCategory() {
     });
   }, [brand]);
 
-  // useEffect(()=>)
 
   return (
     <Box>

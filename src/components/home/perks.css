@@ -1,46 +1,57 @@
-.perks{
-    display: flex;
-    justify-content: center;
-    align-items: c5enter;
-    margin-top: -8%;
+.perks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -8%;
 }
-.shipping-refund-support-container{
-    margin-top: 7rem;
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
+.shipping-refund-support-container {
+  margin-top: 7rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
 }
-.shipping-container,.refund-container,.support-container{
-    text-align: center;
+.shipping-container,
+.refund-container,
+.support-container {
+  text-align: center;
 }
-.shipping-container img,.refund-container img,.support-container img{
-    margin-bottom: 2rem;
+.shipping-container img,
+.refund-container img,
+.support-container img {
+  margin-bottom: 2rem;
 }
-.shipping-container p,.refund-container p,.support-container p{
-    margin-top: 1rem;
+.shipping-container p,
+.refund-container p,
+.support-container p {
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 320px) and (max-width: 600px) {
-
-    .perks{
-        width: 80%;
-    }
-    .shipping-refund-support-container {
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 4rem;
-    }
-    .shipping-container img,.refund-container img,.support-container img {
-        width: 5rem;
-        height: 4rem;
-    }
-    .shipping-container h5,.refund-container h5,.support-container h5{
-        font-size: 1rem;
-    }
-    .shipping-container p,.refund-container p,.support-container p{
-        font-size: 1rem;
-    }
+  .perks {
+    width: 80%;
+  }
+  .shipping-refund-support-container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .shipping-container img,
+  .refund-container img,
+  .support-container img {
+    width: 5rem;
+    height: 4rem;
+  }
+  .shipping-container h5,
+  .refund-container h5,
+  .support-container h5 {
+    font-size: 1rem;
+  }
+  .shipping-container p,
+  .refund-container p,
+  .support-container p {
+    font-size: 1rem;
+  }
 }

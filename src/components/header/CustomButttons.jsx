@@ -11,11 +11,11 @@ import Profile from "./Profile";
 
 const Wrapper = styled(Box)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 13px;
   margin-left: 15%;
-  margin-right: 10%;
+  // margin-right: 10%;
 `;
 
 const LoginButton = styled(Button)`
@@ -36,29 +36,27 @@ const Cart = styled(Link)`
 export default function CustomButttons({ orderPlaced }) {
   const [open, setOpen] = useState(false);
   const { account, setAccount } = useContext(LoginContext);
-  const [name, setName] = useState(null)
+  const [name, setName] = useState(null);
 
   const openDialog = () => {
     setOpen(true);
   };
-  const firstName = localStorage.getItem("firstName")
-useEffect(()=>{
-  if(firstName){
-    setName(firstName)
-  }
-  else{
-    setName(null)
-  }
-}
-,[localStorage.getItem("firstName")])
- 
+  const firstName = localStorage.getItem("firstName");
+  useEffect(() => {
+    if (firstName) {
+      setName(firstName);
+    } else {
+      setName(null);
+    }
+  }, [firstName]);
+
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
     <Wrapper>
       {name ? (
         // <Profile account={account} setAccount={setAccount} />
-        <Profile account={account} setAccount={setAccount} name={name}/>
+        <Profile account={account} setAccount={setAccount} name={name} />
       ) : (
         <LoginButton
           variant="contained"
