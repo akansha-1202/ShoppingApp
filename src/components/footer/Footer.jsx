@@ -34,14 +34,14 @@ const Footer = () => {
           <div className="Fcontact">
             <h3>Contact</h3>
             <div>
-              <span className="LocEmoji">📍</span> 324, Gomti Nagar, Lucknow
+              <span className="LocEmoji">📍</span>Gomti Nagar, Lucknow
             </div>
             <div>
               <span className="PhoneEmoji">📞</span> +91 987654321
             </div>
             <div className="lastFText">
               <pre>
-                <span className="MailEmoji">✉ </span> support@thesiren.com
+                <span className="MailEmoji">✉ </span> support@clickcart.com
               </pre>
             </div>
           </div>
