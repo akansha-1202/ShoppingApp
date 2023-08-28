@@ -54,7 +54,7 @@ const Footer = () => {
             <div className="TheFBollywood">
               <Link
                 className="Flinks"
-                href="https://www.flipkart.com/mobile-phones-store"
+                to="/Mobile"
               >
                 Mobile
               </Link>
@@ -70,18 +70,18 @@ const Footer = () => {
             <div className="TheFTechnology">
               <Link
                 className="Flinks"
-                href="https://www.amazon.in/s?k=laptop%27&adgrpid=58360032709&ext_vrnc=hi&hvadid=398120291510&hvdev=c&hvlocphy=9300710&hvnetw=g&hvqmt=e&hvrand=17169184387492782806&hvtargid=kwd-313781558043&hydadcr=26418_2176895&tag=googinhydr1-21&ref=pd_sl_46gg5xmcuk_e"
+                to="/Laptop"
               >
                 Laptop
               </Link>
             </div>
             <div className="TheFFitness">
-              <a
+              <Link
                 className="Flinks"
-                href="https://www.amazon.in/s?k=fashion&crid=2QKPZ28X2ZB5&sprefix=fashio%2Caps%2C337&ref=nb_sb_noss_2"
+                to="/Accessories"
               >
-                Fashion
-              </a>
+                Accessories
+              </Link>
             </div>
           </div>
         </div>
