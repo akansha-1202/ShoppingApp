@@ -2,13 +2,9 @@
 .TheMainFooter {
     display: flex;
     background-color: black;
-    /* background-color: rgb(156, 68, 46); */
     color: #ffffff;
     justify-content: center;
     min-height: 10rem;
-    /* position: absolute; */
-    /* bottom: 0px; */
-
 }
 
 .FRefernce {
@@ -82,8 +78,7 @@ pre{
     color: #ffffff;
 }
 
-@media  (min-width:600px) and (max-width:1000px){
-
+@media screen and (min-width:600px) and (max-width:1000px){
 
     .TheMainFooter{
         /* font-size: 12px; */
@@ -105,9 +100,9 @@ pre{
 }
 
 
-@media (max-width:600px){
+@media screen and (max-width:600px){
     .TheMainFooter{
-         width: 98%;
+         width: 99.5%;
     }
 
     .FmiddleSubCon{

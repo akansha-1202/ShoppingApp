@@ -23,6 +23,9 @@ const Component = styled(Box)`
     flex-direction: row;
     height: 70vh;
   }
+  @media (min-width: 601px) and (max-width : 800px) {
+    height: 43vh;
+  }
 `;
 
 const Image = styled(Box)`
@@ -34,6 +37,7 @@ const Image = styled(Box)`
     width: 38%;
     margin-bottom: 0;
   }
+
 `;
 
 const Form = styled(Box)`

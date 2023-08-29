@@ -54,15 +54,14 @@ export default function SubCategory() {
   const [data, setData] = useState([]);
 
   const { brand } = useParams();
-  console.log("hii");
   
-  console.log(brand, "brand from subcategory");
+  // console.log(brand, "brand from subcategory");
 
   useEffect(() => {
     var url = `https://e-com-server-akansha-1202.vercel.app/api/products/${brand}`;
 
     axios.get(url).then((response) => {
-      console.log(response.data, "data of subcategory");
+      // console.log(response.data, "data of subcategory");
       setData(response.data);
     });
   }, [brand]);
@@ -72,7 +71,7 @@ export default function SubCategory() {
     <Box>
       <Nav />
       {/* <Typography>{titleString}</Typography> */}
-      <Parent>
+      <Parent style={{minHeight : "48.5vh"}}>
         {data
           .filter((e) => {
             return e.brand === brand;

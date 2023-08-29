@@ -92,8 +92,8 @@ export default function Profile({ account, setAccount,name }) {
 
   return (
     <>
-      <Box onClick={handleClick} sx={{ cursor: "pointer", marginTop: 2 }}>
-        <Typography >{name}</Typography>
+      <Box onClick={handleClick} sx={{ cursor: "pointer", background:"#22314b",borderRadius:"2px", padding:"2px" }}>
+        <Typography style={{fontSize:'0.6rem'}}>{name.toUpperCase()}</Typography>
       </Box>
       <Component
         anchorEl={open}
