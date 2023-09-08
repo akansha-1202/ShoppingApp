@@ -52,10 +52,22 @@ export default function ActionItem({ product }) {
   const addItemToCart = async () => {
     try {
 
-      const token = localStorage.getItem("loginToken")
+      const loginToken = localStorage.getItem("loginToken");
+      const signupToken = localStorage.getItem("signupToken");
+
+      // Determine which token to use based on some condition
+      const tokenToUse = loginToken || signupToken;
+
+      if (!tokenToUse) {
+        toast.success("Please Login First", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+        return; // Exit the function if no valid token is found
+      }
+      
       const headers = {
         // "Content-Type": "application/json",
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${tokenToUse}`,
       };
       // console.log(id,quantity,headers);
       const response = await axios.post(
