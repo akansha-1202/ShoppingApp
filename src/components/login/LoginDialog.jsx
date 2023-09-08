@@ -10,6 +10,7 @@ import {
 import { authenticateSignup, authenticateLogin } from "../../service/Api";
 import { LoginContext } from "../../context/DataProvider";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 
 /* Component Styles */
@@ -44,9 +45,9 @@ const Form = styled(Box)`
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 16px;
   flex: 1;
-  overflow: auto;
+  overflow-y: hidden;
 `;
 
 /* Button Styles */
@@ -81,7 +82,7 @@ const CreateAccount = styled(Typography)`
   font-weight: 600;
   font-size: 12px;
   cursor: pointer;
-  padding : 20px 0px;
+  padding : 10px 0px;
 `;
 
 const Error = styled(Typography)`
@@ -92,7 +93,7 @@ const Error = styled(Typography)`
 
 // /* Other Element Styles */
 const TextBlock = styled(TextField)`
-  margin-top: 10px;
+  margin-top: 2px;
 `;
 
 
@@ -130,6 +131,7 @@ export default function LoginDialog({ open, setOpen }) {
   const { setAccount } = useContext(LoginContext);
   const [login, setLogin] = useState(loginInitialValues);
   const [error, setError] = useState(false);
+  
   const navigate = useNavigate();
 
   const closeDialog = () => {
@@ -139,9 +141,15 @@ export default function LoginDialog({ open, setOpen }) {
   const toggleSignup = () => {
     toggleAccount(accountInitialValues.signup);
   };
+  
+  const toggleLogin = () =>{
+    toggleAccount(accountInitialValues.login)
+  }
+
   const onInputChange = (e) => {
     setSignup({ ...signup, [e.target.name]: e.target.value });
   };
+
   const handleClose = () => {
     setOpen(false);
     toggleAccount(accountInitialValues.login);
@@ -158,8 +166,10 @@ export default function LoginDialog({ open, setOpen }) {
       localStorage.setItem("firstName", response.data.user.firstname);
       handleClose();
       setAccount(localStorage.getItem("firstName"));
-      navigate("/")
-
+      navigate("/");
+      toast.success("Signup Successfully", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
     else{
       alert(response.data.message)
@@ -170,8 +180,6 @@ export default function LoginDialog({ open, setOpen }) {
   const onValueChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
-
-
 
   const loginUser = async () => {
     let response = await authenticateLogin(login);
@@ -187,7 +195,10 @@ export default function LoginDialog({ open, setOpen }) {
         const name = localStorage.getItem("firstName")
         console.log(name);
         setAccount(name);
-        navigate(-1); // Move the navigation here
+        navigate("/"); // Move the navigation here
+        toast.success("Login Successfully", {
+          position: toast.POSITION.TOP_RIGHT
+        });
       }
      else{
       alert(response.data.message)
@@ -294,6 +305,9 @@ export default function LoginDialog({ open, setOpen }) {
             >
               SignUp
             </LoginButton>
+            <CreateAccount onClick={() => toggleLogin()}>
+              Already SignUp? Log In
+            </CreateAccount>
           </Form>
         )}
       </Component>
